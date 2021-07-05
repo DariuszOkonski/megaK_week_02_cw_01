@@ -1,19 +1,21 @@
+const SPECIFITY = 2;
+
 const multiplication = (a , b) => {
-    return a * b;
+    return (a * b).toFixed(SPECIFITY);
 }
 
 const division = (a, b) => {
     if(b === 0)
-        return -1;
-    return (a / b).toFixed(2);
+        return NaN;
+    return (a / b).toFixed(SPECIFITY);
 };
 
 const addition = (a, b) => {
-    return (a + b).toFixed(2);
+    return (a + b).toFixed(SPECIFITY);
 };
 
 const subtraction = (a, b) => {
-    return (a - b).toFixed(2);
+    return (a - b).toFixed(SPECIFITY);
 };
 
 const checkIfCorrectNumberType = (someArgument) => {
@@ -43,7 +45,7 @@ const main = () => {
     console.log("subtraction: " + subtraction(firstNumber, secondNumber))
 
     const divisionResult = division(firstNumber, secondNumber);
-    console.log("division: " + (divisionResult == -1 ? "Can't divide by 0" : divisionResult));
+    console.log("division: " + (isNaN(divisionResult) ? "Can't divide by 0" : divisionResult));
 }
 
 main()
